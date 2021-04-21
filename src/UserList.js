@@ -1,22 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
+import { UserDispatch } from "./App.js";
 
-const User = React.memo(function User({ user, onRemove, onToggle }) {
+const User = React.memo(function User({ user }) {
   const { username, email, id, active } = user;
-
-  /*  useEffect(() => {
-    console.log("컴포넌트가 화면에 나타남");
-    // props -> state
-    // REST API
-    // Library Ex) D3 Video.js , setInterval, setTimeout ...
-    return () => {
-      //setInterval, setTimeout 작업을 제거할 때 ( clearInterval,clearTimeout)
-      // 라이브러리 인스턴스 제거
-      console.log("컴포넌트가 화면에서 사라짐");
-    };
-  }, []);
-  // props 나 useState 로 참조하고있는경우 deps 를 넣어주어야함
-  // 안넣었을 경우 : React Hook useEffect has a missing dependency
-  */
+  const dispatch = useContext(UserDispatch);
 
   return (
     <div>
@@ -25,30 +12,27 @@ const User = React.memo(function User({ user, onRemove, onToggle }) {
           color: active ? "green" : "black",
           cursor: "pointer",
         }}
-        onClick={() => onToggle(id)}
+        onClick={() => dispatch({ type: "TOGGLE_USER", id })}
       >
         {username}
       </b>
       &nbsp;
       <span>( {email} )</span>
-      <button onClick={() => onRemove(id)}>삭제</button>
+      <button onClick={() => dispatch({ type: "REMOVE_USER", id })}>
+        삭제
+      </button>
     </div>
   );
 });
 
-function UserList({ users, onRemove, onToggle }) {
+function UserList({ users }) {
   const style = {
     backgroundColor: "gainsboro",
   };
   return (
     <div style={style}>
       {users.map((user) => (
-        <User
-          user={user}
-          key={user.id}
-          onRemove={onRemove}
-          onToggle={onToggle}
-        />
+        <User user={user} key={user.id} />
       ))}
     </div>
   );

@@ -1,7 +1,5 @@
 # React 기본 학습
 
----
-
 ## react 프로젝트 생성
 
 ```
@@ -100,3 +98,15 @@ const setState = numberState[1];
 - 첫번째 파라미터 `reducer 함수`, 두번째 파라미터 `초기상태`
 - 컴포넌트의 상태 업데이트 로직을 컴포넌트에서 분리 가능
 - 반환하는 상태는 곧 컴포넌트가 지닐 새로운 상태가 됨
+
+## React 함수
+
+- React.memo
+  : 컴포넌트에서 리렌더링이 필요한 상황에서만 리렌더링을 하도록 설정가능
+  즉, 컴포넌트의 props 가 바뀌지 않는다면 리렌더링을 방지하여 성능을 최적화 가능
+
+## Context
+
+[Context](https://ko.reactjs.org/docs/context.html#when-to-use-context)
+
+- context를 사용하면 컴포넌트를 재사용하기가 어려워지므로 꼭 필요할 때만 사용
