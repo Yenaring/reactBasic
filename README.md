@@ -37,7 +37,7 @@ React v16.8 에 새로 추가된 내용으로 Class를 작성할 필요 없이 �
 
 1. `useState`
 
-- 현재의 state 값과 이 값을 업데이트하는 함수를 쌍으로 제공 ( 이벤트핸들러나 다른곳에서 호출가능)
+- 현재의 state 값과 이 값을 업데이트하는 함수를 쌍으로 제공 ( 이벤트핸들러나 다른곳에서 호출가능)  
   cf) class 의 this.setState 와 유사하나 이전의 state 와 새로운 state 를 합치지 않는다는 차이점이 있음 (https://ko.reactjs.org/docs/hooks-state.html 참고)
 
 예시)
@@ -110,3 +110,25 @@ const setState = numberState[1];
 [Context](https://ko.reactjs.org/docs/context.html#when-to-use-context)
 
 - context를 사용하면 컴포넌트를 재사용하기가 어려워지므로 꼭 필요할 때만 사용
+
+---
+
+## ESLint
+: Javascript 문법을 검사해줄 수 있는 도구, 커스텀규칙들을 설정 가능  
+[ESLint](https://eslint.org/docs/developer-guide/working-with-plugins)  
+
+
+ package.json 에서 `eslintConfig` 부분에서 ESLint 설정 확인 가능  
+
+ + config type :
+    + eslint-config-airbnb
+    + eslint-config-google
+    + eslint-config-standard  
+
+config 를 프로젝트에 적용할 때 라이브러리 설치
+
+```
+yarn add eslint-config-airbnb
+yarn add eslint-config-prettier 
+// prettier 관리할 수 있는 것은 eslint 에서 관리안해도 됨
+```
