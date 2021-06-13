@@ -3,5 +3,4 @@
     "tabWidth": 2,
     "semi": true,
     "singleQuote": true
-    // 나머지 속성은 Prettier 홈페이지 참조해서 넣기
 }
