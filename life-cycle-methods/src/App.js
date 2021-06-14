@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { CardList } from "./components/card-list/card-list.component";
+import { SearchBox } from './components/search-box/search-box.component.js';
 
 class App extends React.Component {
   constructor() {
@@ -8,6 +9,7 @@ class App extends React.Component {
 
     this.state = {
       users: [],
+      searchField: "",
     };
   }
 
@@ -19,10 +21,19 @@ class App extends React.Component {
   }
 
   render() {
+
+    const { users, searchField } = this.state;
+    const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchField.toLowerCase()));
+
+
     return (
       <div className="App">
         <header className="App-header">
-          <CardList users={this.state.users} />
+          <SearchBox
+            placeholder="search users"
+            handleChange={(e) => this.setState({ searchField: e.target.value })}
+          />
+          <CardList users={filteredUsers} />
         </header>
       </div>
     );
