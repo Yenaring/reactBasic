@@ -10,28 +10,26 @@ class Lifecycles extends React.Component {
     console.log("componentDidMount!");
   }
 
-  static getDerivedStateFrompops(props,state){
-
-    return {
-        example : props.stateExample
-    }
-  }
+  //   static getDerivedStateFromprops(props,state){
+  //     return {
+  //       example: props.stateExample
+  //     };
+  //   }
 
   componentDidUpdate() {
     console.log("componentDidUpdate!");
-}
+  }
 
-componentWillUnmount(){
-  console.log("componentWillUnmount!");
-}
+  componentWillUnmount() {
+    console.log("componentWillUnmount!");
+  }
 
-shouldComponentUpdate(nextProps,nextState){
-    console.log('shouldComponentUpdate!',nextProps);
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("shouldComponentUpdate!", nextProps);
     return true;
-}
+  }
 
-render(){
-    console.log("render!!!");
-}
-
+  render() {
+    return <div>render!</div>;
+  }
 }
