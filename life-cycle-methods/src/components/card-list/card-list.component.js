@@ -8,7 +8,7 @@ export const CardList = ({users}) =>{
     return (
       <div className="card-list">
         {users.map((user) => (
-          <Card  key={user.id} user={user.name} email={user.email}/>
+          <Card key={user.id} user={user.name} email={user.email} />
         ))}
       </div>
     );

@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { CardList } from "./components/card-list/card-list.component";
-import { SearchBox } from './components/search-box/search-box.component.js';
+import { SearchBox } from "./components/search-box/search-box.component.js";
 
 class App extends React.Component {
   constructor() {
@@ -9,7 +9,7 @@ class App extends React.Component {
 
     this.state = {
       users: [],
-      searchField: "",
+      searchField: ""
     };
   }
 
@@ -20,18 +20,23 @@ class App extends React.Component {
       .catch((error) => console.log(error));
   }
 
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
+
   render() {
-
     const { users, searchField } = this.state;
-    const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchField.toLowerCase()));
-
+    const filteredUsers = users.filter((user) =>
+      user.name.toLowerCase().includes(searchField.toLowerCase())
+    );
 
     return (
       <div className="App">
+        <h1>USER</h1>
         <header className="App-header">
           <SearchBox
             placeholder="search users"
-            handleChange={(e) => this.setState({ searchField: e.target.value })}
+            handleChange={this.handleChange}
           />
           <CardList users={filteredUsers} />
         </header>
@@ -41,3 +46,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+
