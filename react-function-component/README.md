@@ -62,7 +62,7 @@ const setState = numberState[1];
 
 3. `useEffect`
 
-- `componentDidMount, componentDidUpdate, componentWillUnmount` 가 합쳐진것으로 생각하기
+- `componentDidMount, componentDidUpdate, componentWillUnmount` 가 합쳐진것으로 생각하기 [life-cycle-method](https://github.com/yn-lee/reactstudy/blob/main/life-cycle-methods/README.md)
   컴포넌트가 Mount(처음나타났을 때), unMount(사라질 때), update (특정 props가 바뀔 때)
 
   - Mount 시 하는 작업
